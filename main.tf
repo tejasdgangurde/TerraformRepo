@@ -12,12 +12,11 @@ provider "aws" {
   secret_key = var.secret_key
 }
 resource "aws_instance" "myec2" {
- 
   ami           = var.my_ami
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.mysg.id]
   tags = {
-    Name = "myinstance "
+    Name = "myinstance"
   }
   key_name = "mytf-key"
 provisioner "local-exec" {
